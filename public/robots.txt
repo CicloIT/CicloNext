@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://cicloit.com
+
+# Sitemaps
+Sitemap: https://cicloit.com/sitemap.xml
