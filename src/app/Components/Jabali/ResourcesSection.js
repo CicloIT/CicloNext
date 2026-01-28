@@ -8,7 +8,7 @@ import Image from 'next/image';
 export function ResourcesSection() {
   const { t } = useTranslation();
 
-   // Lista fija de IDs de videos (puedes agregar más si quieres)
+  // Lista fija de IDs de videos (puedes agregar más si quieres)
   const videoIds = [
     'cJ_7Vsrd-vQ',
     'gC_A3J0LMqc',
@@ -57,8 +57,8 @@ export function ResourcesSection() {
             <div className="flex justify-center">
               <div className="flex flex-col items-center max-w-md">
                 <Image
-                width={1080}
-                height={1440}
+                  width={1080}
+                  height={1440}
                   src="/accidente.jpeg"
                   alt={t('recursos.imagenes.alt1')}
                   className="rounded-lg shadow-md mb-2 max-h-70 object-contain"
@@ -72,8 +72,8 @@ export function ResourcesSection() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="flex flex-col items-center">
                 <Image
-                width={646}
-                height={736}
+                  width={646}
+                  height={736}
                   src="/info.jpeg"
                   alt={t('recursos.imagenes.alt2')}
                   className="rounded-lg shadow-md mb-2 max-h-[32rem] w-full object-contain"
@@ -99,9 +99,9 @@ export function ResourcesSection() {
             <div className="flex justify-center">
               <div className="flex flex-col items-center max-w-md">
                 <Image
-                width={1600}
-                height={898}
-                  src="/jabaliInfra.jpeg"
+                  width={1600}
+                  height={898}
+                  src="/infra-jabali.jpeg"
                   alt={t('recursos.imagenes.alt4')}
                   className="rounded-lg shadow-md mb-2 max-h-64 object-contain"
                 />

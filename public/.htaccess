@@ -1,0 +1,34 @@
+# Configuración de CicloIT para Apache/Donweb (Versión Definitiva v3)
+RewriteEngine On
+RewriteBase /
+
+# 0. Desactivar DirectorySlash para evitar que Apache añada la barra automáticamente
+# Esto es CRUCIAL para evitar que /planes pase a /planes/ y rompa Next.js
+DirectorySlash Off
+
+# 1. Forzar HTTPS y quitar WWW
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://cicloit.com%{REQUEST_URI} [L,R=301]
+
+# 2. Quitar barras finales (Trailing Slashes) de forma agresiva
+# Si la URL termina en / y no es la raíz, redirigimos a la versión sin /
+RewriteCond %{REQUEST_URI} ^/(.+)/$
+RewriteRule ^ /%1 [L,R=301]
+
+# 3. Servir archivos .html transparentemente
+# Si pides /planes, servimos planes.html internamente
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# 4. Servir archivos y directorios reales si existen
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 5. Fallback final a index.html (Soporte para SPA y rutas inexistentes)
+RewriteRule ^ index.html [L]
+
+# Seguridad y Estabilidad
+Options -Indexes -MultiViews

@@ -10,9 +10,9 @@ export const metadata = {
 export default function JabaliLayout({ children }) {
   return (
     <>
-      <HeaderJ />    
+      <HeaderJ />
       {children}
-      <Final/>     
+      <Final />
     </>
   );
 }
