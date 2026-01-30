@@ -98,8 +98,8 @@ function ContactPage() {
                 title="Teléfono / WhatsApp"
                 description="Lunes a Viernes de 9:00 a 18:00hs"
               >
-                <a href="https://wa.me/5493584314857" target="_blank" rel="noopener noreferrer" className="text-xl text-white hover:text-verde-it transition-colors font-medium">
-                  +54 9 358 431 4857
+                <a href="https://wa.me/5493584853816" target="_blank" rel="noopener noreferrer" className="text-xl text-white hover:text-verde-it transition-colors font-medium">
+                  +54 9 358 485 3816
                 </a>
               </ContactInfo>
 
