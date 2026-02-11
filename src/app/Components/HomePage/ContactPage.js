@@ -137,7 +137,7 @@ function InputField({ label, id, type = "text", required = false }) {
 function ContactInfo({ iconPath, title, description, children }) {
   return (
     <div className="flex items-start space-x-6">
-      <div className="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center text-verde-it flex-shrink-0">
+      <div className="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center text-verde-it shrink-0">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-6 h-6">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={iconPath} />
         </svg>

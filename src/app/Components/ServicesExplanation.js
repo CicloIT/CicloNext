@@ -66,15 +66,21 @@ function ServicesExplanation() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
-      <div className="max-w-5xl mx-auto py-16 px-6">
+    <div className="min-h-screen bg-slate-900 relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-[30%] -right-[20%] w-[60%] h-[60%] rounded-full bg-verde-it/5 blur-[120px]"></div>
+        <div className="absolute -bottom-[30%] -left-[20%] w-[70%] h-[70%] rounded-full bg-blue-600/5 blur-[120px]"></div>
+      </div>
+
+      <div className="max-w-5xl mx-auto py-16 px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mt-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-6">
-            Nuestros Servicios
+        <div className="text-center mt-16 animate-fade-in">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            Nuestros <span className="text-verde-it">Servicios</span>
           </h1>
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-8 rounded-full"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <div className="w-32 h-1 bg-gradient-to-r from-verde-it to-blue-500 mx-auto mb-8 rounded-full"></div>
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Descubre en detalle cada una de nuestras soluciones tecnológicas
           </p>
         </div>
@@ -84,10 +90,11 @@ function ServicesExplanation() {
           {services.map((service, index) => (
             <section 
               key={service.id}
-              className={`group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border ${service.borderColor} border-opacity-20`}
+              className="group relative bg-slate-800/50 backdrop-blur-sm rounded-3xl shadow-xl hover:shadow-[0_0_40px_rgba(27,185,170,0.2)] transition-all duration-500 overflow-hidden border border-slate-700 hover:border-verde-it/50 animate-slide-up"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Background Gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-verde-it/0 to-transparent group-hover:from-verde-it/5 transition-all duration-500"></div>
               
               <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-0`}>
                 {/* Image Section */}
@@ -100,10 +107,10 @@ function ServicesExplanation() {
                       alt={service.imageAlt}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-500"></div>
                     
                     {/* Floating Title Badge */}
-                    <div className={`absolute top-6 left-6 bg-gradient-to-r ${service.color} text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg`}>
+                    <div className="absolute top-6 left-6 bg-gradient-to-r from-verde-it to-blue-500 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
                       {service.title}
                     </div>
                   </div>
@@ -112,11 +119,11 @@ function ServicesExplanation() {
                 {/* Content Section */}
                 <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center relative z-10">
                   <div className="space-y-6">
-                    <h2 className={`text-3xl lg:text-4xl font-bold ${service.textColor} mb-6`}>
+                    <h2 className="text-3xl lg:text-4xl font-bold text-verde-it mb-6">
                       {service.title}
                     </h2>
                     
-                    <p className="text-lg text-gray-700 leading-relaxed">
+                    <p className="text-lg text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
                       {service.description}
                     </p>
 
@@ -126,12 +133,12 @@ function ServicesExplanation() {
                         {service.features.map((feature, featureIndex) => (
                           <div 
                             key={featureIndex}
-                            className="group/feature flex items-start space-x-4 p-4 rounded-xl bg-gray-50 hover:bg-white hover:shadow-md transition-all duration-300"
+                            className="group/feature flex items-start space-x-4 p-4 rounded-xl bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 border border-slate-600/30 hover:border-verde-it/30"
                           >
-                            <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${service.color} mt-2 flex-shrink-0`}></div>
+                            <div className="w-3 h-3 rounded-full bg-verde-it mt-2 flex-shrink-0"></div>
                             <div>
-                              <h4 className="font-bold text-gray-800 mb-2">{feature.title}:</h4>
-                              <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                              <h4 className="font-bold text-white mb-2">{feature.title}:</h4>
+                              <p className="text-slate-400 leading-relaxed">{feature.description}</p>
                             </div>
                           </div>
                         ))}
@@ -140,17 +147,17 @@ function ServicesExplanation() {
 
                     {/* Footer Text */}
                     {service.footer && (
-                      <div className="mt-6 p-4 bg-gradient-to-r rounded-xl border-l-4 border-gradient-to-b from-blue-400 to-purple-500">
-                        <p className="text-gray-700 italic font-medium">
+                      <div className="mt-6 p-4 bg-slate-700/30 rounded-xl border-l-4 border-verde-it">
+                        <p className="text-slate-300 italic font-medium">
                           {service.footer}
                         </p>
                       </div>
                     )}
 
                     {/* Call to Action */}
-                    <div className="flex items-center justify-between pt-6 border-t border-gray-100">
-                      <div className={`w-24 h-1 bg-gradient-to-r ${service.color} rounded-full`}></div>
-                      <button className={`px-6 py-3 bg-gradient-to-r ${service.color} text-white font-semibold rounded-full hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl`}>
+                    <div className="flex items-center justify-between pt-6 border-t border-slate-700">
+                      <div className="w-24 h-1 bg-gradient-to-r from-verde-it to-blue-500 rounded-full"></div>
+                      <button className="px-6 py-3 bg-verde-it hover:bg-[#159e90] text-white font-semibold rounded-full transform transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(27,185,170,0.3)] hover:scale-105">
                         <a href="https://wa.me/5493584314857">
                           Más información
                         </a>                        
@@ -161,15 +168,15 @@ function ServicesExplanation() {
               </div>
 
               {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-white/30 to-transparent rounded-full blur-2xl"></div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tl from-white/20 to-transparent rounded-full blur-3xl"></div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-verde-it/5 rounded-full blur-2xl"></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl"></div>
             </section>
           ))}
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-20 bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 rounded-3xl p-12 text-center text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/10"></div>
+        <div className="mt-20 bg-gradient-to-r from-verde-it to-blue-500 rounded-3xl p-12 text-center text-white relative overflow-hidden animate-slide-up">
+          <div className="absolute inset-0 bg-black/20"></div>
           <div className="relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               ¿Necesitas más información?
@@ -178,7 +185,7 @@ function ServicesExplanation() {
               Nuestro equipo está listo para asesorarte y crear la solución perfecta para tu negocio
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-600 font-bold py-4 px-8 rounded-full hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg">
+              <button className="bg-white text-verde-it font-bold py-4 px-8 rounded-full hover:bg-slate-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(27,185,170,0.3)]">
                 <a href='https://wa.me/5493584314857' target='_blank'>
                     Contáctanos
                 </a>
