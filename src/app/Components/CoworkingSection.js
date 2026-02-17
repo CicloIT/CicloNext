@@ -6,24 +6,10 @@ import { ChevronRight, Phone } from "lucide-react"
 export default function CoworkingSection() {
   const spaces = [
     {
-      title: "Escritorio Individual",
-      description: "Espacio personal equipado con todo lo necesario para tu productividad",
-      price: "21.000$/día",
-      features: ["Escritorio", 'Monitor', "Wi-Fi", "Acceso los 5 dia de la semana"],
-      image: "/Individual.webp",
-    },
-    {
-      title: "Oficina Privada",
-      description: "Oficina completamente equipada para equipos pequeños",
-      price: "30.000$/día",
-      features: ["Hasta 4 personas", "Sala de reuniones", "Pizarra", "Café"],
-      image: "/Privada.webp",
-    },
-    {
       title: "Sala de Reuniones",
-      description: "Espacio profesional para presentaciones y reuniones importantes",
+      description: "Espacio profesional diseñado para presentaciones, reuniones importantes y videoconferencias. Equipado con tecnología de vanguardia para que tu equipo se comunique de manera efectiva.",
       price: "60.000$/día",
-      features: ["Proyector", "Sistema de audio", "Videoconferencia"],
+      features: ["Proyector 4K", "Sistema de audio premium", "Videoconferencia HD", "Pizarra interactiva", "Wi-Fi de alta velocidad", "Climatización inteligente"],
       image: "/Reuniones.webp",
     },
   ]
@@ -122,13 +108,13 @@ export default function CoworkingSection() {
 
         {/* Spaces Grid */}
         <div className="mb-20">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">Nuestros <span className="text-verde-it">Espacios</span></h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {spaces.map((space, index) => (
-              <div
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">Sala de <span className="text-verde-it">Reuniones</span></h2>
+          <div className="flex justify-center">
+            <div className="w-full max-w-2xl">
+              {spaces.map((space, index) => (
+                <div
                 key={index}
-                className="group relative animate-slide-up bg-slate-800/50 backdrop-blur-sm border border-slate-700 hover:border-verde-it/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(27,185,170,0.2)] transition-all duration-300 hover:-translate-y-2"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="group relative animate-slide-up bg-slate-800/50 backdrop-blur-sm border border-slate-700 hover:border-verde-it/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(27,185,170,0.2)] transition-all duration-300 hover:-translate-y-2 w-full"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-verde-it/0 to-transparent group-hover:from-verde-it/10 transition-all duration-300 pointer-events-none"></div>
                 
@@ -163,6 +149,41 @@ export default function CoworkingSection() {
                   </button>
                 </div>
               </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Gallery Section */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">Galería de <span className="text-verde-it">Fotos</span></h2>
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+              Conoce nuestro espacio profesional desde diferentes ángulos
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { src: "/SalaReunion1.webp", alt: "Sala de reuniones - Vista principal" },
+              { src: "/SalaReunion2.webp", alt: "Sala de reuniones - Zona de colaboración" },
+              { src: "/SalaReunion3.webp", alt: "Sala de reuniones - Equipamiento tecnológico" },              
+            ].map((photo, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-[0_0_30px_rgba(27,185,170,0.2)] transition-all duration-300 hover:-translate-y-1 animate-slide-up"
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                <div className="aspect-square overflow-hidden bg-slate-700 rounded-xl">
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <p className="text-white text-sm font-semibold p-4">{photo.alt}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -173,8 +194,8 @@ export default function CoworkingSection() {
           <div className="flex justify-center">
             <img
               className="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl h-auto object-contain rounded-xl"
-              src="/Precios.webp"
-              alt="Tabla de precios"
+              src="/Precios2.webp"
+              alt="Tabla de precios"s
             />
           </div>
         </div>
